@@ -93,8 +93,75 @@ class SingleLinkList(object):
         # 头部设置为新节点
         self.__head = node
 
+    def insert(self, pos, item):
+        """
+        向指定位置插入数据
+        :param pos: 位置
+        :param item: 内容
+        :return:
+        """
+        # 特例
+        # 头部插入
+        if pos <= 0:
+            self.add(item)
+        # 尾部插入
+        elif pos > self.length() - 1:
+            self.append(item)
+
+        # 插入
+        else:
+            node = SingleNode(item)  # 创建新节点
+            pre = self.__head  # 插入位置的前一个节点,初始为head
+            count = 0
+            while count < (pos - 1):
+                count += 1
+                pre = pre.next
+
+            node.next = pre.next
+            pre.next = node
+
+    def remove(self, item):
+        """根据内容删除节点"""
+        cur = self.__head
+        pre = None
+
+        while cur is not None:  # 遍历链表
+            if cur.item == item:  # 找到相同内容的节点
+                # 删除节点
+                if cur == self.__head:  # 删除节点为头部
+                    self.__head = cur.next
+                else:  # 删除节点不为头部
+                    pre.next = cur.next
+                break
+            else:
+                # 移动
+                pre = cur
+                cur = cur.next
+
+    def search(self, item):
+        """
+        根据内容查找节点是否存在
+        :param item: 查找的内容
+        :return: True / False
+        """
+        cur = self.__head
+        while cur is not None:
+            if cur.item == item:
+                return True
+            else:
+                # 内容不匹配 游标继续移动
+                cur = cur.next
+        return False
+
+
+"""pytext测试"""
+
 
 def test_is_empty():
-    """使用pytext测试is_empty方法"""
-    list_s = SingleLinkList()
-    assert list_s.is_empty() == True
+    """测试is_empty()"""
+    list_empty = SingleLinkList()
+    list_not_empty = SingleLinkList()
+    list_not_empty.append(1)
+
+    assert list_empty.is_empty() and not list_not_empty.is_empty()
+
