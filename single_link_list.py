@@ -152,16 +152,3 @@ class SingleLinkList(object):
                 # 内容不匹配 游标继续移动
                 cur = cur.next
         return False
-
-
-"""pytext测试"""
-
-
-def test_is_empty():
-    """测试is_empty()"""
-    list_empty = SingleLinkList()
-    list_not_empty = SingleLinkList()
-    list_not_empty.append(1)
-
-    assert list_empty.is_empty() and not list_not_empty.is_empty()
-
