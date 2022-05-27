@@ -27,17 +27,17 @@ class SingleLinkList(object):
     def is_empty(self) -> bool:
         """
         判断链表是否为空
-        :return: True / False
+        :return:{bool}链表是否为空
         """
         if self.__head is None:
             return True
         else:
             return False
 
-    def length(self):
+    def length(self) -> int:
         """
         获取链表长度
-        :return:int
+        :return:{int}链表长度
         """
         # 指针指向首节点
         cur = self.__head
@@ -50,15 +50,23 @@ class SingleLinkList(object):
             cur = cur.next  # 指针移动到下一个节点
         return count
 
-    def travel(self):
-        """遍历链表"""
+    def travel(self) -> str:
+        """
+        遍历链表
+        :return:{str}链表内容
+        """
         # 指针指向首节点
         cur = self.__head
+        str_print = '['
 
         # 如果指针所在节点不是空的
         while cur is not None:
-            print(cur.item, end=',')
+            str_print = str_print + str(cur.item)
             cur = cur.next
+            if cur is not None:
+                str_print = str_print + ', '
+        str_print = str_print + ']'
+        return str_print
 
     def append(self, item):
         """
@@ -152,3 +160,4 @@ class SingleLinkList(object):
                 # 内容不匹配 游标继续移动
                 cur = cur.next
         return False
+
