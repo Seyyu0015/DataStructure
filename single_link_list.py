@@ -9,7 +9,7 @@ class SingleNode(object):
     """
     链表的单个节点
     ┌─────┬─────┐
-    │data │next │
+    │item │next │ ->
     └─────┴─────┘
     """
 
