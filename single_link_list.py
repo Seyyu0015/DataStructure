@@ -8,9 +8,7 @@
 class SingleNode(object):
     """
     链表的单个节点
-    ┌─────┬─────┐
-    │item │next │ ->
-    └─────┴─────┘
+    │ item │ next │
     """
 
     def __init__(self, item):
@@ -37,7 +35,7 @@ class SingleLinkList(object):
     def length(self) -> int:
         """
         获取链表长度
-        :return:{int}链表长度
+        :return:{int} 链表长度
         """
         # 指针指向首节点
         cur = self.__head
@@ -53,7 +51,7 @@ class SingleLinkList(object):
     def travel(self) -> str:
         """
         遍历链表
-        :return:{str}链表内容
+        :return:{str} 链表内容
         """
         # 指针指向首节点
         cur = self.__head
@@ -72,7 +70,6 @@ class SingleLinkList(object):
         """
         向链表尾部添加元素
         :param item: 元素内容
-        :return:
         """
         # 创建新节点
         node = SingleNode(item)
@@ -91,8 +88,7 @@ class SingleLinkList(object):
     def add(self, item):
         """
         向链表头部添加元素
-        :param item:
-        :return:
+        :param item: 内容
         """
         # 创建新节点
         node = SingleNode(item)
@@ -106,7 +102,6 @@ class SingleLinkList(object):
         向指定位置插入数据
         :param pos: 位置
         :param item: 内容
-        :return:
         """
         # 特例
         # 头部插入
@@ -150,7 +145,7 @@ class SingleLinkList(object):
         """
         根据内容查找节点是否存在
         :param item: 查找的内容
-        :return: True / False
+        :return:{bool} 节点是否存在
         """
         cur = self.__head
         while cur is not None:
