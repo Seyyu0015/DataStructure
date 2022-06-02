@@ -1,17 +1,15 @@
 """
 单链表
 
-算法.单链表
+实现单链表的算法
 """
 
 
 class SingleNode(object):
-    """
-    链表的单个节点
-    │ item │ next │
-    """
+    """单链表"""
 
     def __init__(self, item):
+        """链表的单个节点"""
         self.item = item  # item是内容
         self.next = None  # next是指针
 
@@ -141,11 +139,11 @@ class SingleLinkList(object):
                 pre = cur
                 cur = cur.next
 
-    def search(self, item):
+    def search(self, item) -> bool:
         """
         根据内容查找节点是否存在
         :param item: 查找的内容
-        :return:{bool} 节点是否存在
+        :return:节点是否存在
         """
         cur = self.__head
         while cur is not None:
