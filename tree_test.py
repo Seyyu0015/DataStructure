@@ -30,3 +30,6 @@ def test_tree():
 
     # postorder
     assert tree_test.postorder() == ['D', 'E', 'B', 'F', 'C', 'A']
+
+    # height
+    assert tree_test.height() == 3
