@@ -138,7 +138,8 @@ class Tree:
 
         # 层序遍历列表
         level_order_list = []  # 用于遍历的列表，储存树
-        level_order = []  # 用于返回的列表，储存节点的内容
+        global NODE_LIST  # 用于返回的列表，储存节点的内容
+        NODE_LIST = []
 
         # 根节点中的数据
         if self.item is not None:
@@ -164,6 +165,6 @@ class Tree:
             # 取出每层中的数据
             for i in range(0, height):  # 层数
                 for index in range(len(level_order_list[i])):
-                    level_order.append(level_order_list[i][index].item)
+                    NODE_LIST.append(level_order_list[i][index].item)
 
-        return level_order
+        return NODE_LIST
