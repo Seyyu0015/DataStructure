@@ -34,3 +34,6 @@ def test_tree():
 
     # height
     assert tree_test.height() == 3
+
+    # level_order
+    assert tree_test.level_order() == ['A', 'B', 'C', 'D', 'E', 'F']
