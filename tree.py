@@ -93,3 +93,20 @@ class Tree:
             self.right.postorder_node()
         if self.item is not None:
             NODE_LIST.append(self.item)
+
+    def height(self) -> int:
+        """
+        树的高度：
+        空树高度为0,只有root节点的树高度为1
+        :return: 树的高度
+        """
+        if self.item is None:  # 空树高度为0
+            return 0
+        elif self.left is None and self.right is None:  # 只有root节点的树高度为1
+            return 1
+        elif self.left is None and self.right is not None:
+            return 1 + self.right.height()
+        elif self.left is not None and self.right is None:
+            return 1 + self.left.height()
+        else:
+            return 1 + max(self.left.height(), self.right.height())
