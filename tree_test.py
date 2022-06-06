@@ -15,7 +15,7 @@ def test_tree():
     tree_node_right = tree.Tree('C', tree_node_right_left)
     tree_test = tree.Tree('A', tree_node_left, tree_node_right)
     """
-    测试树的结构
+    测试树的结构：
                 [A]
             ↙        ↘
         [B]             [C]
@@ -27,3 +27,6 @@ def test_tree():
 
     # inorder
     assert tree_test.inorder() == ['D', 'B', 'E', 'A', 'F', 'C']
+
+    # postorder
+    assert tree_test.postorder() == ['D', 'E', 'B', 'F', 'C', 'A']
