@@ -8,12 +8,6 @@ tree.py
 
 def test_tree():
     """pytest 测试"""
-    tree_node_left_left = tree.Tree('D')
-    tree_node_left_right = tree.Tree('E')
-    tree_node_right_left = tree.Tree('F')
-    tree_node_left = tree.Tree('B', tree_node_left_left, tree_node_left_right)
-    tree_node_right = tree.Tree('C', tree_node_right_left)
-    tree_test = tree.Tree('A', tree_node_left, tree_node_right)
     """
     测试树的结构：
                 [A]
@@ -22,6 +16,13 @@ def test_tree():
       ↙     ↘          ↙
     [D]     [E]     [F]
     """
+    tree_node_left_left = tree.Tree('D')
+    tree_node_left_right = tree.Tree('E')
+    tree_node_right_left = tree.Tree('F')
+    tree_node_left = tree.Tree('B', tree_node_left_left, tree_node_left_right)
+    tree_node_right = tree.Tree('C', tree_node_right_left)
+    tree_test = tree.Tree('A', tree_node_left, tree_node_right)
+
     # preorder
     assert tree_test.preorder() == ['A', 'B', 'D', 'E', 'C', 'F']
 
